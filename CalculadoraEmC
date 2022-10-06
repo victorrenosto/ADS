@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() 
+
+{
+    printf("Nome: Victor Renosto Damasceno\nMatrícula: 202010519\nUniversidade: La Salle Canoas\nCurso: Análise e Desenvolvimento de Sistemas\n\n***Calculadora em C***\n\n");
+    float num1, num2, result;
+    int operacao;
+    char voltar;
+    
+    do{ 
+        do
+        {
+        printf("Operação que deseja fazer:\n\n");
+        printf("1. Soma\n2. Subtração\n3. Divisão\n4. Mutiplicaçao\n5. Raíz Quadrada\n6. Potência\n");
+        scanf("%d", &operacao);
+        
+        if (operacao>6||operacao<1){
+            printf("Digite novamente\n");
+            }
+        } while(operacao>6||operacao<1);
+    
+        if (operacao==5){
+            printf("Raíz quadrada de: \n");
+            scanf("%f", &num1);
+        
+        }
+        else if (operacao ==6){
+            printf("Base da potência\n");
+            scanf("%f", &num1);
+            printf("Expoente da potência\n");
+            scanf("%f", &num2);
+        }
+        else{
+            do{
+                printf("Escolha dois numéros.\nPrimeiro número: \n");
+                scanf("%f", &num1);
+                printf("Segundo número:\n");
+                scanf("%f", &num2);
+                if (operacao==3&&num2==0){
+                printf("Impossível divisão com número 0(zero)");
+                }
+            } while(operacao ==3&&num2==0);
+        }
+        switch(operacao){
+            case 1:
+                result=num1+num2;
+                break;
+            case 2:
+                result=num1-num2;
+                break;
+            case 3:
+                result=num1/num2;
+                break;
+            case 4:
+                result=num1*num2;
+                break;
+            case 5:
+                result=sqrt(num1);
+                break;
+            case 6:
+                result=pow(num1, num2);
+            break;
+        }
+        printf("O resultado da sua operação é: %0.2f\n", result);
+        
+        
+    } while (voltar != '0');
+}
